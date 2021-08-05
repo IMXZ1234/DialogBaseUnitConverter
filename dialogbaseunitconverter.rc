@@ -1,0 +1,41 @@
+# include   "C:\masm32\include\resource.h"
+
+# define ICO_MAIN           0x1000
+# define DLG_MAIN           1
+# define IDC_TEXT           100
+# define IDC_EDITBASEUNITX  101
+# define IDC_EDITBASEUNITY  102
+# define IDC_EDITPIXELX     103
+# define IDC_EDITPIXELY     104
+# define IDC_TOUNIT         200
+# define IDC_TOPIXEL        201
+
+//# define IDC_TEXTINPUTX     101
+//# define IDC_TEXTINPUTY     102
+//# define IDC_TEXTOUTPUTX    103
+//# define IDC_TEXTOUTPUTY    104
+
+//ICO_MAIN        ICON        "Main.ico"
+DLG_MAIN DIALOG 50, 50, 220, 179
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "对话框单元与像素转换"
+FONT 9, "宋体"
+{
+//ICON ICO_MAIN -1, 10, 241, 18, 21
+CTEXT "", IDC_TEXT, 10, 10, 200, 36
+//CONTROL 文本, ID, 类, 风格, x, y, 宽度, 高度[, 扩展风格]
+CONTROL "", -1, "Static", SS_ETCHEDHORZ | WS_CHILD | WS_VISIBLE, 10, 41, 200, 1
+GROUPBOX "对话框基本单元数", -1, 10, 47, 200, 49
+LTEXT "水平(X轴/宽)", -1, 15, 64, 80, 12
+EDITTEXT IDC_EDITBASEUNITX, 105, 64, 90, 12
+LTEXT "竖直(Y轴/高)", -1, 15, 81, 80, 12
+EDITTEXT IDC_EDITBASEUNITY, 105, 81, 90, 12
+//CONTROL "", -1, "Static", SS_ETCHEDHORZ | WS_CHILD | WS_VISIBLE, 10, 98, 103, 1
+GROUPBOX "像素数", -1, 10, 104, 200, 49
+LTEXT "水平(X轴/宽)", -1, 15, 121, 80, 12
+EDITTEXT IDC_EDITPIXELX, 105, 121, 90, 12
+LTEXT "竖直(Y轴/高)", -1, 15, 138, 80, 12
+EDITTEXT IDC_EDITPIXELY, 105, 138, 90, 12
+DEFPUSHBUTTON "转换为像素数(&P)", IDC_TOPIXEL, 15, 160, 75, 14
+DEFPUSHBUTTON "转换为单元数(&D)", IDC_TOUNIT, 119, 160, 75, 14
+}
